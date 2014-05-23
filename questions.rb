@@ -83,12 +83,12 @@
 
   # return the shortest word in an array
   def shortest_word_in_array(array)
-    array.min_by {|word| word.length}
+    array.min_by(&:length)
   end
 
   # return the longest word in an array
   def longest_word_in_array(array)
-    array.max_by {|word| word.length}
+    array.max_by(&:length)
   end
 
   # add up all the numbers in an array, so [1, 3, 5, 6]
@@ -126,7 +126,7 @@
   # pairing up elements. e.g. ['a', 'b', 'c', 'd'] becomes
   # {'a' => 'b', 'c' => 'd'}
   def convert_array_to_a_hash(array)
-    Hash[*array.flatten]
+    Hash[*array]
   end
 
   # get all the letters used in an array of words and return
@@ -237,20 +237,23 @@
   # called call_method_from_string('foobar')
   # the method foobar should be invoked
   def call_method_from_string(str_method)
-    raise_error if self.str_method
+    self.str_method
   end
 
   # return true if the date is a uk bank holiday for 2014
   # the list of bank holidays is here:
   # https://www.gov.uk/bank-holidays
   def is_a_2014_bank_holiday?(date)
-    
+    array_of_holidays = ['2014-05-26','2014-08-25', '2014-12-25', '2014-12-26']
+    date = date.to_s.split
+    array_of_holidays.include?(date[0])
   end
 
   # given your birthday this year, this method tells you
   # the next year when your birthday will fall on a friday
   # e.g. january 1st, will next be a friday in 2016
   def your_birthday_is_on_a_friday_in_the_year(birthday)
+
   end
 
   # in a file, total the number of times words of different lengths
@@ -265,6 +268,7 @@
   # go from 1 to 100
   # (there's no RSpec test for this one)
   def fizzbuzz_without_modulo
+
   end
 
   # print the lyrics of the song 99 bottles of beer on the wall
